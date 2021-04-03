@@ -23,3 +23,30 @@ greenButton.addEventListener("click", function() {
     document.getElementsByClassName("btn btn-secondary btn-lrg")[0].style.backgroundColor = "#8c9c08";
     document.getElementsByClassName("btn btn-secondary btn-lrg")[0].style.color = "black";
 });
+
+
+
+let submitButton = document.querySelector("form button"); // form button
+
+function formButton(event) {
+    event.preventDefault();
+    let emailField = document.querySelector("#exampleInputEmail1");
+    let nameField = document.querySelector("#example-text-input");
+    let describeField = document.querySelector("#exampleTextarea");
+    console.log(nameField.value.length);
+  
+      if (!emailField.value.length > 0 || !emailField.value.includes("@")){
+      emailField.style.backgroundColor = "#ff0000";
+      } else if (!nameField.value.length > 0) {
+      nameField.style.backgroundColor = "#ff0000";
+      } else if (!describeField.value.length > 0) {
+       describeField.style.backgroundColor = "#ff0000";
+    } else {
+          alert("Thank you for filling out the form");
+          nameField.value = "";
+          emailField.value = "";
+          describeField.value = "";
+    }
+  }
+  
+  submitButton.addEventListener("click", (event) => formButton(event));
